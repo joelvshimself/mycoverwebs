@@ -1,0 +1,33 @@
+.comisionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 2rem;
+    height: 100vh;
+    width: 100vw;
+}
+
+.title {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #7D5FFF; /* Morado */
+    margin-bottom: 1.5rem;
+    text-align: left; /* Asegura que el texto se alinee a la izquierda */
+    width: 100%; /* Ocupa todo el ancho */
+    padding-left: 5vw; /* Ajusta este valor según el margen deseado */
+}
+.boletosImage {
+    width: 60%; /* Ajusta el tamaño de la imagen */
+    max-width: 800px;
+    margin-bottom: 1.5rem;
+}
+
+.message {
+    font-size: 1.5rem;
+    font-style: italic;
+    max-width: 60vw;
+}

@@ -2,6 +2,8 @@ import {BentoGridSecondDemo} from "./components/bentocomponent";
 import "./App.css"; 
 import Hero from "./components/hero";
 import AnimatedText from "./components/funcionalidades";
+import Comision from "./components/comision";
+import { GlowingEffectDemoSecond } from "./components/glowcard";
 
 
 function App() {
@@ -26,10 +28,10 @@ function App() {
         <BentoGridSecondDemo />
       </section>
       <section className="h-screen w-full bg-black flex items-center justify-center text-white text-4xl font-bold">
-        Section 5
+        <Comision />
       </section>
       <section className="h-screen w-full bg-black flex items-center justify-center text-white text-4xl font-bold">
-        Section 6
+        <GlowingEffectDemoSecond />
       </section>
       <section className="h-screen w-full bg-black flex items-center justify-center text-white text-4xl font-bold">
         Section 7
