@@ -1,8 +1,17 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+}
+.app-container {
+  background-color: black; /* Fondo negro global */
+}
+
+.full-section {
+  height: 100vh;  /* Cada sección ocupa todo el viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black !important; /* Forzar fondo negro */
+  color: white; /* Color del texto blanco */
 }
 
 .logo {
@@ -17,6 +26,7 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
+
 
 @keyframes logo-spin {
   from {

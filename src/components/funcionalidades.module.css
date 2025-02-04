@@ -1,27 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;700&display=swap');
+/* funcionalidades.module.css */
 
-  
-.cool-split {
-    font-size: 3rem;
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  /* Ocupa todo el viewport */
+    width: 100vw;
+    background-color: black;
+}
+
+.textContainer {
+    width: 40vw; /* 30% del viewport width */
+    font-size: 2rem; /* Texto más grande */
     font-weight: bold;
-    text-align: center;
+    text-align: left;
     max-width: 800px;
     line-height: 1.5;
     opacity: 1;
     display: flex;
-    flex-wrap: wrap;  /* Permite que el texto se distribuya en varias líneas */
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 10px; /* Espacio entre palabras */
+    gap: 10px;
 }
 
-.animated-word {
-    display: inline-block;  /* Para que la animación se aplique palabra por palabra */
+.animatedWord {
+    display: inline-block;
     transition: color 0.3s, opacity 0.3s;
-    color: rgba(255, 255, 255, 0.2);  /* Color inicial tenue */
+    color: rgba(255, 255, 255, 0.2);
 }
 
-/* Personaliza colores por índice */
-.word-2 { color: #c29200; }  /* Ejemplo para la tercera palabra */
-.word-5 { color: #008a52; }
-.word-8 { color: #732e6b; }
-.word-12 { color: #d62f6a; }
+/* Color azul para la palabra "donde" */
+.blueWord {
+    color: #007BFF;
+    font-weight: bold;
+}

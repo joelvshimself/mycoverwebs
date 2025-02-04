@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import "./funcionalidades.module.css";
+import styles from "./funcionalidades.module.css"; // ✅ Importación correcta para CSS Modules
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,6 +15,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ text }) => {
   useEffect(() => {
     if (!textRef.current) return;
 
+    // Usamos una clase sin CSS Modules para que GSAP la reconozca
     const words = textRef.current.querySelectorAll(".animated-word");
 
     gsap.fromTo(
@@ -27,9 +28,9 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ text }) => {
         duration: 1.2,
         ease: "power2.out",
         scrollTrigger: {
-          trigger: ".about",
+          trigger: textRef.current, // 🔥 Ahora usamos el ref directamente
           start: "top 80%",
-          end: "+=100%",
+          end: "bottom 40%",
           scrub: 1.5,
         },
       }
@@ -37,10 +38,13 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ text }) => {
   }, []);
 
   return (
-    <section className="h-screen w-full bg-black flex items-center justify-center text-white text-4xl font-bold">
-      <div className="cool-split" ref={textRef}>
+    <section className={`${styles.about} about`} ref={textRef}>
+      <div className={`${styles.textContainer} text-container`}>
         {text.split(" ").map((word, index) => (
-          <span key={index} className={`animated-word word-${index}`}>
+          <span 
+            key={index} 
+            className={`animated-word ${styles.animatedWord} ${word.toLowerCase() === "donde" ? styles.blueWord : ""}`}
+          >
             {word}{" "}
           </span>
         ))}

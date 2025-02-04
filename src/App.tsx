@@ -1,5 +1,5 @@
 import {BentoGridSecondDemo} from "./components/bentocomponent";
-import styles from "./App.css";
+import "./App.css"; 
 import Hero from "./components/hero";
 import AnimatedText from "./components/funcionalidades";
 
@@ -13,9 +13,11 @@ function App() {
       <section className="h-screen w-full bg-black flex items-center justify-center text-white text-4xl font-bold">
         Section 2
       </section>
-      <section className="h-screen w-full bg-black flex items-center justify-center text-white text-4xl font-bold">
-      <AnimatedText text={`Como funciona ¡Es tan fácil como 1, 2, 3! 
-􀊫 Busca tu evento en la app . 􀎠 Compra tu entrada de forma segura . 􀆡Accede mostrando tu QR único desde 􂏰`} />
+      <section className="full-section">
+      <AnimatedText 
+  text={`Como funciona ¡Es tan fácil como 1, 2, 3! \n
+􀊫 Busca tu evento en la app .\n 􀎠 Compra tu entrada de forma segura .\n 􀆡Accede mostrando tu QR único desde 􂏰`} 
+/>
       <br />
       
       </section>
