@@ -13,8 +13,11 @@ function App() {
       <section className="h-screen w-full bg-black flex items-center justify-center text-white text-4xl font-bold">
         Section 2
       </section>
-      <section className="h-screen w-full  flex items-center justify-center text-4xl font-bold">
-      <AnimatedText text="Este es un texto animado Maria es mi persona favorita " />
+      <section className="h-screen w-full bg-black flex items-center justify-center text-white text-4xl font-bold">
+      <AnimatedText text={`Como funciona ¡Es tan fácil como 1, 2, 3! 
+􀊫 Busca tu evento en la app . 􀎠 Compra tu entrada de forma segura . 􀆡Accede mostrando tu QR único desde 􂏰`} />
+      <br />
+      
       </section>
       <section className="h-screen w-full bg-black flex items-center justify-center text-white text-4xl font-bold">
 

@@ -1,21 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;700&display=swap');
 
-
-.about {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-  }
   
-  .cool-split h2 {
+.cool-split {
     font-size: 3rem;
     font-weight: bold;
-    color: rgba(255, 255, 255, 0.125);
-    transition: color 0.3s;
     text-align: center;
     max-width: 800px;
     line-height: 1.5;
-  }
+    opacity: 1;
+    display: flex;
+    flex-wrap: wrap;  /* Permite que el texto se distribuya en varias líneas */
+    justify-content: center;
+    gap: 10px; /* Espacio entre palabras */
+}
+
+.animated-word {
+    display: inline-block;  /* Para que la animación se aplique palabra por palabra */
+    transition: color 0.3s, opacity 0.3s;
+    color: rgba(255, 255, 255, 0.2);  /* Color inicial tenue */
+}
+
+/* Personaliza colores por índice */
+.word-2 { color: #c29200; }  /* Ejemplo para la tercera palabra */
+.word-5 { color: #008a52; }
+.word-8 { color: #732e6b; }
+.word-12 { color: #d62f6a; }
