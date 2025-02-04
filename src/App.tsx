@@ -4,6 +4,7 @@ import Hero from "./components/hero";
 import AnimatedText from "./components/funcionalidades";
 import Comision from "./components/comision";
 import { GlowingEffectDemoSecond } from "./components/glowcard";
+import Contact from "./components/contactsection";
 
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
         <GlowingEffectDemoSecond />
       </section>
       <section className="h-screen w-full bg-black flex items-center justify-center text-white text-4xl font-bold">
-        Section 7
+        <Contact />
       </section>
       <section className="h-screen w-full bg-black flex items-center justify-center text-white text-4xl font-bold">
         Section 8
