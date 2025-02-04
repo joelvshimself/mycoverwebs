@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;700&display=swap');
+
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #000000;
+    color: white;
+    text-align: center;
+  }
+  
+  .title {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 8rem;
+    font-weight: bold;
+    margin-bottom: -30px;
+    color: #D9DFFE;
+  }
+  
+  .subtitle {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 3rem;
+    font-weight: semibold;
+    margin-bottom: 5rem;
+    color: #8A8C94;
+  }
+
+  .logo {
+    width: 20vw;  /* 30% del ancho del viewport */
+    max-width: 300px; /* Opcional: evita que sea demasiado grande en pantallas grandes */
+    height: auto;
+    }
+  
+  .button {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: regular;
+    background-color: #e5e5e5;
+    color: black;
+    padding: 12px 24px;
+    border-radius: 9999px; /* Fully rounded */
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    
+  }
+  
+  .button:hover {
+    background-color: rgb(119, 119, 121);
+  }
