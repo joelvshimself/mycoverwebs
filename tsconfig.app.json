@@ -7,8 +7,16 @@
     "module": "ESNext",
     "skipLibCheck": true,
 
-    /* Bundler mode */
-    "moduleResolution": "bundler",
+    /* ⚡ Cambios recomendados */
+    "moduleResolution": "node",  // Cambia de "bundler" a "node"
+    "esModuleInterop": true,      // Permite compatibilidad con módulos ES6
+    "allowSyntheticDefaultImports": true, // Permite importar módulos sin `default`
+    "resolveJsonModule": true,    // Permite importar archivos JSON
+    "baseUrl": "./",              // Asegura que los imports relativos funcionen bien
+    "paths": {                    // Ayuda a resolver módulos si es necesario
+      "*": ["node_modules/*"]
+    },
+
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",

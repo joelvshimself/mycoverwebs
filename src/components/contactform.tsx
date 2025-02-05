@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const ModalOverlay = styled.div`
@@ -25,16 +25,6 @@ const ModalContent = styled.div`
 `;
 
 const Sheet = ({ onClose }: { onClose: () => void }) => {
-  useEffect(() => {
-    // Bloquea el scroll cuando el modal está abierto
-    document.body.style.overflow = "hidden";
-
-    return () => {
-      // Restaura el scroll cuando el modal se cierra
-      document.body.style.overflow = "auto";
-    };
-  }, []);
-
   return (
     <ModalOverlay onClick={onClose}>
       <ModalContent onClick={(e) => e.stopPropagation()}>

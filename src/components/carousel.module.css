@@ -1,0 +1,29 @@
+/* Contenedor del carrusel */
+.carouselContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5; /* Fondo claro para mejor visibilidad */
+}
+
+/* Estilos de cada tarjeta */
+.card {
+  width: 160px;  /* Ancho */
+  height: 240px; /* Alto */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3b82f6; /* Azul */
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Ajuste para la carta activa */
+.activeCard {
+  transform: scale(1.2);
+}

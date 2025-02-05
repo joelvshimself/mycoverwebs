@@ -1,12 +1,23 @@
-import styled from 'styled-components';
+"use client";
+import { useState } from "react";
+import styled from "styled-components";
+import Sheet from "./sheet"; // Importamos el componente de modal
 
 const Contact = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <StyledWrapper>
-      <button>Contactanos</button>
-    </StyledWrapper>
+    <>
+      {/* Botón para abrir el modal */}
+      <StyledWrapper>
+        <button onClick={() => setIsOpen(true)}>Contáctanos</button>
+      </StyledWrapper>
+
+      {/* Sheet Modal */}
+      {isOpen && <Sheet onClose={() => setIsOpen(false)} />}
+    </>
   );
-}
+};
 
 const StyledWrapper = styled.div`
   button {
@@ -37,6 +48,7 @@ const StyledWrapper = styled.div`
     box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
     transform: translateY(10px);
     transition: 100ms;
-  }`;
+  }
+`;
 
 export default Contact;

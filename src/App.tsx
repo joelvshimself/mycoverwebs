@@ -7,6 +7,7 @@ import { GlowingEffectDemoSecond } from "./components/glowcard";
 import Contact from "./components/contactsection";
 import Navbar from "./components/navbar";
 import { Footer } from "./components/footer";
+import Carousel from "./components/carousel";
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
         <Hero />
       </section>
       <section className="h-screen w-full bg-black flex items-center justify-center text-white text-4xl font-bold">
-        Section 2
+        <Carousel />
       </section>
       <section className="full-section">
       <AnimatedText 
