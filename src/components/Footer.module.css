@@ -1,0 +1,119 @@
+
+
+/* Estilos generales del footer */
+.footerBg {
+  position: relative;
+  color: rgb(255, 255, 255);
+  background-color: #000000;
+  padding: 50px 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Fondo animado */
+.footerGradients {
+  position: absolute;
+  inset: 0;
+  filter: blur(40px);
+}
+
+.footerGradientLayer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--size);
+  height: var(--size);
+  opacity: 0.6;
+  mix-blend-mode: var(--blending-value);
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+  animation: rotate 10s infinite linear;
+}
+
+.footerGradientLayer:nth-child(1) {
+  background: radial-gradient(circle at center, var(--first-color) 0%, transparent 50%);
+}
+
+.footerGradientLayer:nth-child(2) {
+  background: radial-gradient(circle at center, var(--second-color) 0%, transparent 50%);
+  transform-origin: calc(50% - 200px) calc(50% + 200px);
+}
+
+.footerGradientLayer:nth-child(3) {
+  background: radial-gradient(circle at center, var(--third-color) 0%, transparent 50%);
+  transform-origin: calc(50% + 400px) calc(50% - 400px);
+}
+
+.footerGradientLayer:nth-child(4) {
+  background: radial-gradient(circle at center, var(--fourth-color) 0%, transparent 50%);
+  transform-origin: calc(50% - 400px) calc(50% - 200px);
+}
+
+.footerGradientLayer:nth-child(5) {
+  background: radial-gradient(circle at center, var(--fifth-color) 0%, transparent 50%);
+  transform-origin: calc(50% + 800px) calc(50% - 800px);
+}
+
+/* Contenedor principal del footer con diseño de 2 columnas */
+.footerContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  text-align: left;
+}
+
+/* Secciones dentro del footer */
+.footerSection {
+  flex: 1; /* Permite que los elementos se ajusten automáticamente */
+  min-width: 300px; /* Asegura que no se reduzcan demasiado */
+  max-width: 50%; /* Cada sección ocupa hasta la mitad del espacio */
+  text-align: left;
+}
+
+
+
+.footerSection p {
+  font-size: 16px;
+  color: #bbb;
+}
+
+/* Íconos sociales */
+.socialIcons {
+  display: flex;
+  gap: 15px;
+  justify-content: left;
+}
+
+.icon {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.icon:hover {
+  color: #1e90ff;
+}
+
+/* Sección inferior */
+.footerBottom {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 14px;
+  color: #ffffff;
+  
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

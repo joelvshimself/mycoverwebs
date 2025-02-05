@@ -29,6 +29,7 @@
   }
 
   .logo {
+    margin-top: 5rem;
     width: 20vw;  /* 30% del ancho del viewport */
     max-width: 300px; /* Opcional: evita que sea demasiado grande en pantallas grandes */
     height: auto;

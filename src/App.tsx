@@ -5,11 +5,14 @@ import AnimatedText from "./components/funcionalidades";
 import Comision from "./components/comision";
 import { GlowingEffectDemoSecond } from "./components/glowcard";
 import Contact from "./components/contactsection";
+import Navbar from "./components/navbar";
+import { Footer } from "./components/footer";
 
 
 function App() {
   return (
     <div className="flex flex-col">
+      <Navbar />
       <section >
         <Hero />
       </section>
@@ -37,9 +40,9 @@ function App() {
       <section className="h-screen w-full bg-black flex items-center justify-center text-white text-4xl font-bold">
         <Contact />
       </section>
-      <section className="h-screen w-full bg-black flex items-center justify-center text-white text-4xl font-bold">
-        Section 8
-      </section>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }
