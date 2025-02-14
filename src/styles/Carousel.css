@@ -1,3 +1,7 @@
+/* section.carousel-sec {
+  background-color: #000000;
+} */
+
 div.carousel {
   display: flex;
   flex-direction: column;
@@ -6,6 +10,16 @@ div.carousel {
   width: 100%;
   height: 100%;
   padding-top: 1rem;
+
+  h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    text-align: center;
+
+    span {
+      font-weight: 700;
+    }
+  }
 
   div.container {
     display: flex;
@@ -26,26 +40,55 @@ div.carousel {
       border-radius: 10px;
       overflow: hidden;
 
-      img {
-        width: 25%;
-        height: 25%;
-        border-radius: .25em;
+      div.card:first-of-type {
+        /* background-color: blue; */
+
+        img {
+          position: relative;
+          left: 5rem;
+        }
       }
 
-      img:first-of-type {
-        position: relative;
-        left: 2rem;
-      }
-
-      img:nth-child(2) {
-        width: 40%;
-        height: 40%;
+      div.card:nth-child(2) {
+        /* background-color: red; */
+        width: 100%;
+        height: 100%;
         z-index: 1;
       }
 
-      img:last-of-type {
+      div.card:last-of-type {
+        /* background-color: green; */
+
         position: relative;
-        right: 2rem;
+        right: 5rem;
+      }
+
+      div.card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          width: 100%;
+          height: 100%;
+          /* aspect-ratio: 16/9; */
+          border-radius: .25em;
+        }
+
+        /* img:first-of-type {
+          position: relative;
+          left: 2rem;
+        } */
+
+        img:nth-child(2) {
+          z-index: 1;
+        }
+
+        /* img:last-of-type {
+          position: relative;
+          right: 2rem;
+        } */
       }
     }
   }
@@ -56,25 +99,27 @@ div.carousel {
     align-items: center;
     justify-content: center;
     padding: .5em;
+    background-color: #ccc;
+    border-radius: 1em;
 
     span.dot {
-      width: 1rem;
-      height: 1rem;
+      width: 0.75rem;
+      height: 0.75rem;
       margin: 0 .5rem;
       border-radius: 50%;
       cursor: pointer;
     }
 
     span.active {
-      background-color: purple;
+      background-color: #fff;
     }
 
     span.inactive {
-      background-color: #000;
+      background-color: #ddd;
     }
 
     span:hover {
-      background-color: #ccc;
+      background-color: #585353;
     }
   }
 }

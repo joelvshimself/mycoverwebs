@@ -2,12 +2,21 @@ import { useState } from "react";
 import "../styles/Carousel.css";
 
 const Carousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const images = [
-    "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBhcnR5fGVufDB8fDB8fHww",
-    "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBhcnR5fGVufDB8fDB8fHww"
+    {
+      "img": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBhcnR5fGVufDB8fDB8fHww",
+      "legend": "Eventos"
+    },
+    {
+      "img": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "legend": "Fiestas"
+    },
+    {
+      "img": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBhcnR5fGVufDB8fDB8fHww",
+      "legend": "Reuniones"
+    }
   ]
 
   const handleLeft = () => {
@@ -18,6 +27,10 @@ const Carousel = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
   }
 
+  const handleDotClick = (index: number) => {
+    setCurrentIndex(index);
+  };
+
   const getVisibleImages = () => {
     const visibleImages = [];
     for (let i = 0; i < 3; i++) {
@@ -26,19 +39,21 @@ const Carousel = () => {
     return visibleImages;
   };
 
-  const visibleImages = getVisibleImages();
-
   return (
-    <section>
+    <section className="carousel-sec">
       <div className="carousel">
+        <h3>La <span>Experiencia</span> Perfecta Para Cada Ocasión</h3>
         <div className="container">
           <button className="left" onClick={handleLeft}>
             &lt;
           </button>
           <div className="cards">
             {
-              visibleImages.map((image, index) => (
-                <img key={index} src={image} alt={`sample ${index}`} />
+              getVisibleImages().map((image, index) => (
+                <div key={index} className="card">
+                  <img src={image.img} alt={`sample ${index}`} />
+                  <span>{image.legend}</span>
+                </div>
               ))
             }
           </div>
@@ -49,7 +64,11 @@ const Carousel = () => {
         <div className="dots">
           {
             images.map((_, index) => (
-              <span key={index} className={`dot ${index === 1 ? "active" : "inactive"}`}>
+              <span
+                key={index}
+                className={`dot ${index === currentIndex ? "active" : "inactive"}`}
+                onClick={handleDotClick.bind(null, index)}
+              >
               </span>
             ))
           }
