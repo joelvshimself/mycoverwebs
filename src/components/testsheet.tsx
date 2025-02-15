@@ -27,10 +27,10 @@ const ModalContent = styled.div`
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 `;
 
-const Sheet = ({ onClose }: { onClose: () => void }) => {
-  const [userName, setUserName] = useState("");
-  const [userEmail, setUserEmail] = useState("");
-  const [userMessage, setUserMessage] = useState("");
+const TestSheet = ({ onClose }: { onClose: () => void }) => {
+  const [testerName, setTesterName] = useState("");
+  const [icloudAccount, setIcloudAccount] = useState("");
+  const [accessReason, setAccessReason] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -46,36 +46,26 @@ const Sheet = ({ onClose }: { onClose: () => void }) => {
     setLoading(true);
     setError("");
 
+    // Definimos los parámetros que enviaremos a EmailJS
     const templateParams = {
-      from_name: userName,
-      from_email: userEmail,
-      message: userMessage,
-      subject: `Contacto de ${userName}`,
+      tester_name: testerName,
+      icloud_account: icloudAccount,
+      access_reason: accessReason,
+      subject: `Beta Tester Application from ${testerName}`,
     };
 
     try {
-      const serviceID = "service_dha2cfn";     
-      const templateID = "template_z85alyu";   
-      const publicKey = "DJJl_FbSytyADJZQy";      
+      // Reemplaza estos valores por los que te proporciona EmailJS
+      const serviceID = "service_dha2cfn";
+      const templateID = "template_0qz46re";
+      const publicKey = "DJJl_FbSytyADJZQy";
 
       const response = await emailjs.send(serviceID, templateID, templateParams, publicKey);
       console.log("Correo enviado!", response.status, response.text);
       onClose();
     } catch (err: unknown) {
-      // Definimos un tipo mínimo para el error
-      type EmailJSError = { text?: string; message?: string };
-      const errorObj = err as EmailJSError;
-      
-      // Imprimimos el error completo en la consola
-      console.error("Error al enviar el correo:", errorObj);
-      console.error("Detalles del error:", JSON.stringify(errorObj, null, 2));
-
-      // Mostramos un mensaje genérico en la UI
-      setError(
-        errorObj?.text ||
-          errorObj?.message ||
-          "Ocurrió un error al enviar el mensaje. Intenta nuevamente."
-      );
+      console.error("Error al enviar el correo:", err);
+      setError("Ocurrió un error al enviar el mensaje. Intenta nuevamente.");
     } finally {
       setLoading(false);
     }
@@ -84,32 +74,30 @@ const Sheet = ({ onClose }: { onClose: () => void }) => {
   return (
     <ModalOverlay onClick={onClose}>
       <ModalContent onClick={(e) => e.stopPropagation()}>
-        <h2 className="text-2xl font-bold">Contacto</h2>
-        <p className="text-base text-gray-300 mt-1">
-          ¿Tienes alguna pregunta? No dudes en contactarnos.
-        </p>
+        <h2 className="text-2xl font-bold">HEY!</h2>
+        <p className="text-base text-gray-300 mt-1">Hello beta tester.</p>
         <form onSubmit={handleSubmit} className="mt-6 space-y-3">
           <input
             type="text"
-            placeholder="Tu Nombre"
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
+            placeholder="Your Name"
+            value={testerName}
+            onChange={(e) => setTesterName(e.target.value)}
             required
             className="w-full p-3 bg-gray-800 text-white rounded border border-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#7D5FFF] transition-colors duration-200 text-base"
           />
           <input
-            type="email"
-            placeholder="Tu Email"
-            value={userEmail}
-            onChange={(e) => setUserEmail(e.target.value)}
+            type="text"
+            placeholder="Your Icloud Account"
+            value={icloudAccount}
+            onChange={(e) => setIcloudAccount(e.target.value)}
             required
             className="w-full p-3 bg-gray-800 text-white rounded border border-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#7D5FFF] transition-colors duration-200 text-base"
           />
           <textarea
-            placeholder="Tu Mensaje"
+            placeholder="Why you want early access?"
             rows={4}
-            value={userMessage}
-            onChange={(e) => setUserMessage(e.target.value)}
+            value={accessReason}
+            onChange={(e) => setAccessReason(e.target.value)}
             required
             className="w-full p-3 bg-gray-800 text-white rounded border border-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#7D5FFF] transition-colors duration-200 text-base"
           />
@@ -118,7 +106,7 @@ const Sheet = ({ onClose }: { onClose: () => void }) => {
             disabled={loading}
             className="w-full bg-[#7D5FFF] hover:bg-[#6C4DEE] text-white font-semibold p-3 rounded transition-colors duration-200"
           >
-            {loading ? "Enviando..." : "Enviar"}
+            {loading ? "Enviando..." : "Send"}
           </button>
           {error && <p className="text-red-400 text-sm mt-2">{error}</p>}
         </form>
@@ -126,11 +114,11 @@ const Sheet = ({ onClose }: { onClose: () => void }) => {
           onClick={onClose}
           className="mt-6 text-sm text-red-400 hover:text-red-300 transition-colors duration-200"
         >
-          Cerrar
+          Close
         </button>
       </ModalContent>
     </ModalOverlay>
   );
 };
 
-export default Sheet;
+export default TestSheet;
