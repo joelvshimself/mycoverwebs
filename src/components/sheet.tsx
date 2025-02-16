@@ -54,9 +54,10 @@ const Sheet = ({ onClose }: { onClose: () => void }) => {
     };
 
     try {
-      const serviceID = "service_dha2cfn";     
-      const templateID = "template_z85alyu";   
-      const publicKey = "DJJl_FbSytyADJZQy";      
+      const serviceID = process.env.NEXT_PUBLIC_SERVICE_ID!;
+      const templateID = process.env.NEXT_PUBLIC_TEMPLATE_ID!;
+      const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY!;
+    
 
       const response = await emailjs.send(serviceID, templateID, templateParams, publicKey);
       console.log("Correo enviado!", response.status, response.text);

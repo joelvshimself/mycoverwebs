@@ -56,9 +56,9 @@ const TestSheet = ({ onClose }: { onClose: () => void }) => {
 
     try {
       // Reemplaza estos valores por los que te proporciona EmailJS
-      const serviceID = "service_dha2cfn";
-      const templateID = "template_0qz46re";
-      const publicKey = "DJJl_FbSytyADJZQy";
+      const serviceID = process.env.NEXT_PUBLIC_SERVICE_ID!;
+      const templateID = process.env.TEMPLATE_ID2!;
+      const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY!;
 
       const response = await emailjs.send(serviceID, templateID, templateParams, publicKey);
       console.log("Correo enviado!", response.status, response.text);
