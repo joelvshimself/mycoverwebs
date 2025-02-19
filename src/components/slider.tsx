@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "../styles/Carousel.css";
 
 const Carousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(1);
+  const startX = useRef(null);
 
   const images = [
     {
@@ -20,23 +21,42 @@ const Carousel = () => {
   ]
 
   const handleLeft = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
-  };
-
-  const handleRight = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
   }
+
+  const handleRight = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+  };
 
   const handleDotClick = (index: number) => {
     setCurrentIndex(index);
   };
 
+  /** @note left, middle and right images */
   const getVisibleImages = () => {
-    const visibleImages = [];
-    for (let i = 0; i < 3; i++) {
-      visibleImages.push(images[(currentIndex + i) % images.length]);
+    return [
+      images[(currentIndex - 1 + images.length) % images.length],
+      images[currentIndex],
+      images[(currentIndex + 1) % images.length]
+    ];
+  };
+
+  const handleTouchStart = (e) => {
+    startX.current = e.touches ? e.touches[0].clientX : e.clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    if (!startX.current) return;
+    const currentX = e.touches ? e.touches[0].clientX : e.clientX;
+    const difference = startX.current - currentX;
+
+    if (difference > 50) {
+      handleRight();
+      startX.current = null;
+    } else if (difference < -50) {
+      handleLeft();
+      startX.current = null;
     }
-    return visibleImages;
   };
 
   return (
@@ -47,10 +67,13 @@ const Carousel = () => {
           <button className="left" onClick={handleLeft}>
             &lt;
           </button>
-          <div className="cards">
+          <div className="cards" onMouseDown={handleTouchStart}
+            onMouseMove={handleTouchMove}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}>
             {
               getVisibleImages().map((image, index) => (
-                <div key={index} className="card">
+                <div key={index} className={`card ${index === 1 ? "activeCard" : ""}`}>
                   <img src={image.img} alt={`sample ${index}`} />
                   <span>{image.legend}</span>
                 </div>
