@@ -1,6 +1,7 @@
-/* section.carousel-sec {
+section.carousel-sec {
   background-color: #000000;
-} */
+  color: #fff;
+}
 
 div.carousel {
   display: flex;
@@ -9,16 +10,25 @@ div.carousel {
   justify-content: center;
   width: 100%;
   height: 100%;
-  padding-top: 1rem;
 
-  h3 {
+  h2 {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     text-align: center;
+    margin-bottom: 1rem;
 
     span {
       font-weight: 700;
     }
+  }
+
+  button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 2.5rem;
   }
 
   div.container {
@@ -29,6 +39,7 @@ div.carousel {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    padding-bottom: 0.5rem;
 
     div.cards {
       display: flex;
@@ -42,33 +53,24 @@ div.carousel {
       padding: 1rem;
       cursor: grab;
 
-      /* div.card:first-of-type { */
-      /* background-color: blue; */
-
-      /* img {
-          position: relative;
-          left: 5rem;
-        }
+      div.card:first-of-type {
+        position: relative;
+        left: 5rem;
       }
 
-      div.card:nth-child(2) { */
+      div.card:last-of-type {
+        /* background-color: green; */
+
+        position: relative;
+        right: 5rem;
+      }
+
+      /* div.card:nth-child(2) { */
       /* background-color: red; */
       /* width: 100%;
         height: 100%;
         z-index: 1;
-      }
-
-      div.card:last-of-type { */
-      /* background-color: green; */
-
-      /* position: relative;
-        right: 5rem;
-      } */
-
-      div.activeCard {
-        transform: scale(1.3);
-        opacity: 1;
-      }
+      }*/
 
       div.card {
         display: flex;
@@ -81,7 +83,7 @@ div.carousel {
         transition: transform 0.3s ease, opacity 0.3s ease;
 
         img {
-          width: 20em;
+          width: 25em;
           height: auto;
           /*aspect-ratio: 16/9;
           */
@@ -91,6 +93,22 @@ div.carousel {
 
         img:nth-child(2) {
           z-index: 1;
+        }
+
+        span {
+          font-size: 1.2rem;
+          font-weight: 500;
+          color: #595959;
+        }
+      }
+
+      div.activeCard {
+        transform: scale(1.3);
+        opacity: 1;
+        z-index: 1;
+
+        span {
+          color: #fff;
         }
       }
     }
@@ -102,7 +120,7 @@ div.carousel {
     align-items: center;
     justify-content: center;
     padding: .5em;
-    background-color: #ccc;
+    background-color: #4B4747;
     border-radius: 1em;
 
     span.dot {
@@ -118,7 +136,7 @@ div.carousel {
     }
 
     span.inactive {
-      background-color: #ddd;
+      background-color: #7b7a7a;
     }
 
     span:hover {

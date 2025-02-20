@@ -1,3 +1,5 @@
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRef, useState } from "react";
 import "../styles/Carousel.css";
 
@@ -62,10 +64,10 @@ const Carousel = () => {
   return (
     <section className="carousel-sec">
       <div className="carousel">
-        <h3>La <span>Experiencia</span> Perfecta Para Cada Ocasión</h3>
+        <h2>La <span>Experiencia</span> Perfecta Para Cada Ocasión</h2>
         <div className="container">
           <button className="left" onClick={handleLeft}>
-            &lt;
+            <FontAwesomeIcon icon={faAngleLeft} />
           </button>
           <div className="cards" onMouseDown={handleTouchStart}
             onMouseMove={handleTouchMove}
@@ -81,7 +83,7 @@ const Carousel = () => {
             }
           </div>
           <button className="right" onClick={handleRight}>
-            &gt;
+            <FontAwesomeIcon icon={faAngleRight} />
           </button>
         </div>
         <div className="dots">
