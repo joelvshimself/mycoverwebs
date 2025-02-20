@@ -1,16 +1,14 @@
 import "./App.css";
 import { BentoGridSecondDemo } from "./components/bentocomponent";
-import Carousel from "./components/carousel";
+import Carousel from "./components/slider";
 import Comision from "./components/comision";
 import Contact from "./components/contactsection";
 import { Footer } from "./components/footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { BentoGridSecondDemo } from "./components/bentocomponent";
 import "./App.css";
 import Hero from "./components/hero";
 import AnimatedText from "./components/funcionalidades";
 import { GlowingEffectDemoSecond } from "./components/glowcard";
-import Hero from "./components/hero";
 import Navbar from "./components/navbar";
 
 import TermsConditions from "./components/terms"; // Importamos la nueva página
