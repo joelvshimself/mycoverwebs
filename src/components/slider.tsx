@@ -1,6 +1,6 @@
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../styles/Carousel.css";
 
 const Carousel = () => {
@@ -60,6 +60,13 @@ const Carousel = () => {
       startX.current = null;
     }
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleRight();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [currentIndex, handleRight]);
 
   return (
     <section className="carousel-sec">
