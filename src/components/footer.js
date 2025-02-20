@@ -1,0 +1,6 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { IconBrandInstagram } from "@tabler/icons-react";
+import styles from "./footer.module.css"; // Importamos el archivo CSS
+export const Footer = () => {
+    return (_jsxs("footer", { className: styles.footerBg, children: [_jsxs("div", { className: styles.footerContent, children: [_jsxs("div", { className: styles.footerSection, children: [_jsx("h2", { children: "Sobre myCover" }), _jsx("p", { children: "La forma m\u00E1s r\u00E1pida y segura de comprar entradas para eventos exclusivos. Accede con tu c\u00F3digo QR \u00FAnico y disfruta sin preocupaciones." })] }), _jsxs("div", { className: styles.footerSection, children: [_jsx("h2", { children: "S\u00EDguenos" }), _jsx("div", { className: styles.socialIcons, children: _jsx("a", { href: "https://www.instagram.com/mycover_app/", className: styles.icon, children: _jsx(IconBrandInstagram, { size: 24 }) }) })] })] }), _jsxs("div", { className: styles.footerBottom, children: [_jsx("p", { children: "\u00A9 2025 myCover. Todos los derechos reservados." }), _jsxs("p", { children: [_jsx("a", { href: "/terminos", children: "T\u00E9rminos y condiciones" }), " |", _jsx("a", { href: "/privacidad", children: " Pol\u00EDtica de privacidad" }), " |", _jsx("a", { href: "/reembolsos", children: " Pol\u00EDtica de reembolsos" })] })] })] }));
+};
