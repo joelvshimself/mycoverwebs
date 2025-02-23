@@ -13,6 +13,8 @@ import Navbar from "./components/navbar";
 
 import TermsConditions from "./components/terms"; // Importamos la nueva página
 
+
+
 function App() {
   return (
     <Router>
@@ -31,14 +33,14 @@ function App() {
                 <section className="h-screen w-full bg-black flex items-center justify-center text-white text-4xl font-bold">
                   <Carousel />
                 </section>
-                <section className="full-section">
+                <section className="full-section mb-20">
                   <AnimatedText
                     text={`Como funciona ¡Es tan fácil como 1, 2, 3! \n
 􀊫 Busca tu evento en la app .\n 􀎠 Compra tu entrada de forma segura .\n 􀆡Accede mostrando tu QR único desde 􂏰`}
                   />
                   <br />
                 </section>
-                <section className="h-screen w-full bg-black flex items-center justify-center text-white text-4xl font-bold">
+                <section className="hidden md:flex min-h-screen w-full bg-black flex-col items-center justify-center text-white text-4xl font-bold pb-20">
                   <BentoGridSecondDemo />
                 </section>
                 <section className="h-screen w-full bg-black flex items-center justify-center text-white text-4xl font-bold">
