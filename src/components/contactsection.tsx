@@ -10,24 +10,21 @@ const Contact = () => {
     <>
       <StyledSection>
         <Container>
-          <Column>
+          <TextColumn>
             <h2>Contacta con Nosotros</h2>
-            <p>
-              ¿Tienes preguntas o necesitas ayuda? Nuestro equipo está listo para
-              asistirte. Escríbenos y te responderemos lo antes posible.
-            </p>
+            <p>Escríbenos y te responderemos lo antes posible.</p>
             <StyledWrapper>
               <button onClick={() => setIsOpen(true)}>Contáctanos</button>
             </StyledWrapper>
-          </Column>
-          <Column>
+          </TextColumn>
+          <ImageColumn>
             <StyledImage>
               <img
                 src="/ss/contentview.png" // Cambia esto por la ruta correcta de tu imagen
                 alt="Ilustración de contacto"
               />
             </StyledImage>
-          </Column>
+          </ImageColumn>
         </Container>
       </StyledSection>
 
@@ -47,19 +44,25 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
-const Column = styled.div`
+const TextColumn = styled.div`
   flex: 1;
   min-width: 300px;
   padding: 20px;
+  text-align: center; /* 🔥 Centra el texto en móviles */
 
   h2 {
     font-size: 32px;
     font-weight: 600;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     margin-bottom: 10px;
   }
 
@@ -71,16 +74,39 @@ const Column = styled.div`
   }
 `;
 
+const ImageColumn = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    display: none; /* 🔥 Oculta la imagen en móviles */
+  }
+`;
+
 const StyledImage = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  width: 100%;
 
   img {
     width: 25vw;
     height: auto;
+    max-width: 400px;
+    margin: auto;
+    display: block;
+  }
+    @media (max-width: 768px) {
+    display: none; /* 🔥 Oculta la imagen en móviles */
   }
 `;
 
 const StyledWrapper = styled.div`
+  text-align: center;
+
   button {
     padding: 17px 40px;
     border-radius: 50px;

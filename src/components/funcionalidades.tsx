@@ -30,7 +30,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ text }) => {
         scrollTrigger: {
           trigger: textRef.current, // 🔥 Ahora usamos el ref directamente
           start: "top 80%",
-          end: "bottom 40%",
+          end: "bottom 20%",
           scrub: 1.5,
         },
       }

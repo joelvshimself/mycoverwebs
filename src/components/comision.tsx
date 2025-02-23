@@ -11,10 +11,6 @@ const Comision: React.FC = () => {
       {/* Imagen de los boletos */}
       <img src={boletosImg} alt="Boletos con 5% resaltado" className={styles.boletosImage} />
 
-      {/* Mensaje */}
-      <p className={styles.message}>
-        “Esta comisión nos ayuda a mantener y mejorar el servicio para ti.”
-      </p>
     </section>
   );
 };
