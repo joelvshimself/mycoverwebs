@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;700&display=swap');
 
-
+/* 📌 Hero Section */
 .hero {
     display: flex;
     flex-direction: column;
@@ -10,46 +10,65 @@
     background-color: #000000;
     color: white;
     text-align: center;
-  }
-  
-  .title {
-    font-family: 'Hanken Grotesk', sans-serif;
-    font-size: 8rem;
-    font-weight: bold;
-    margin-bottom: -30px;
-    color: #D9DFFE;
-  }
-  
-  .subtitle {
-    font-family: 'Hanken Grotesk', sans-serif;
-    font-size: 3rem;
-    font-weight: semibold;
-    margin-bottom: 5rem;
-    color: #8A8C94;
-  }
+    padding: 0 20px; /* Pequeño padding para móviles */
+}
 
-  .logo {
-    margin-top: 5rem;
-    width: 20vw;  /* 30% del ancho del viewport */
-    max-width: 300px; /* Opcional: evita que sea demasiado grande en pantallas grandes */
+/* 📌 Logo Responsivo */
+.logo {
+    margin-top: 3rem;
+    width: clamp(120px, 25vw, 300px); /* Tamaño adaptable */
     height: auto;
-    }
-  
-  .button {
+}
+
+/* 📌 Título (ajustado para móviles) */
+.title {
     font-family: 'Hanken Grotesk', sans-serif;
-    font-size: 1.5rem;
-    font-weight: regular;
+    font-size: clamp(3rem, 8vw, 8rem); /* Se ajusta entre 3rem y 8rem */
+    font-weight: bold;
+    margin-bottom: -20px;
+    color: #D9DFFE;
+}
+
+/* 📌 Subtítulo (ajustado para móviles) */
+.subtitle {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 3rem); /* Ajusta entre 1.5rem y 3rem */
+    font-weight: 600;
+    margin-bottom: 3rem;
+    color: #8A8C94;
+}
+
+/* 📌 Botón Responsivo */
+.button {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: normal;
     background-color: #e5e5e5;
     color: black;
     padding: 12px 24px;
-    border-radius: 9999px; /* Fully rounded */
+    border-radius: 50px;
     border: none;
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease;
+}
 
-    
-  }
-  
-  .button:hover {
+.button:hover {
     background-color: rgb(119, 119, 121);
-  }
+}
+
+/* 📌 🌍 Ajustes específicos para móviles */
+@media (max-width: 768px) {
+    .hero {
+        height: 90vh; /* Un poco menos de altura en móviles */
+        padding: 0 10px;
+    }
+
+    .title {
+        margin-bottom: -10px;
+    }
+
+    .subtitle {
+        margin-bottom: 2rem;
+    }
+}
