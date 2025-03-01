@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import styles from "./funcionalidades.module.css";
 import { Search, Lock, Upload, Wallet } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
