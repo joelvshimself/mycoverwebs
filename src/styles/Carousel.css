@@ -1,6 +1,10 @@
 section.carousel-sec {
   background-color: #000000;
   color: #fff;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 div.carousel {
@@ -9,138 +13,194 @@ div.carousel {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
+  height: auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
 
-  h2 {
-    margin: 0;
-    font-size: 2.5rem;
+button.left,
+button.right {
+  font-size: 3rem; /* Aumenta el tamaño del ícono */
+  width: 4rem; /* Ancho del botón */
+  height: 4rem; 
+} 
+
+button.left:hover,
+button.right:hover {
+  color: rgb(211, 211, 211);
+} 
+
+
+button.left:active,
+button.right:active {
+  color: rgb(81, 81, 81);
+} 
+
+
+
+div.carousel h2 {
+  margin: 0;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+  max-width: 90%;
+}
+
+div.carousel h2 span {
+  font-weight: 700;
+}
+
+div.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  overflow: hidden;
+  padding-bottom: 0.5rem;
+  position: relative;
+}
+
+div.cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 1rem;
+  cursor: grab;
+  scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
+  scroll-behavior: smooth; /* Hace el scroll más suave */
+}
+
+div.cards::-webkit-scrollbar {
+  display: none; /* Oculta la barra de desplazamiento en Chrome y Safari */
+
+}
+
+div.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25em;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+}
+
+div.card img {
+  width: 100%;
+  max-width: 25em;
+  height: auto;
+  border-radius: 0.25em;
+  transition: transform 0.3s ease, width 0.3s ease;
+}
+
+div.card span {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #595959;
+  text-align: center;
+}
+
+div.activeCard {
+  transform: scale(1.3);
+  opacity: 1;
+  z-index: 1;
+}
+
+div.activeCard span {
+  color: #fff;
+}
+
+div.dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em;
+  background-color: #4B4747;
+  border-radius: 1em;
+}
+
+span.dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  margin: 0 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+
+
+
+span.active {
+  background-color: #fff;
+}
+
+span.inactive {
+  background-color: #7b7a7a;
+}
+
+span.dot:hover {
+  background-color: #585353;
+}
+
+/* 📌 Ajustes para dispositivos móviles */
+@media (max-width: 768px) {
+  div.carousel h2 {
+    font-size: 1.8rem;
     text-align: center;
-    margin-bottom: 1rem;
-
-    span {
-      font-weight: 700;
-    }
   }
 
-  button {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 2.5rem;
+
+
+
+
+  .container button.left,
+  .container button.right {
+    display: none; /* Oculta los botones en móviles */
   }
 
-  div.container {
+  div.cards {
+    padding: 0;
+    overflow-x: scroll; /* Permite el desplazamiento táctil */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: center;
+  }
+
+  div.card span {
+    color: #ffffff;
+  }
+
+  div.activeCard {
+    transform: scale(1);
+    opacity: 1;
+    z-index: 1;
+  }
+
+  div.card {
+    max-width: 100%; /* Ajustar para evitar que ocupe todo el ancho */
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+  }
+
+
+  div.card img {
     width: 100%;
-    height: 100%;
-    overflow: hidden;
-    padding-bottom: 0.5rem;
-
-    div.cards {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      border-radius: 10px;
-      overflow: hidden;
-      padding: 1rem;
-      cursor: grab;
-
-      div.card:first-of-type {
-        position: relative;
-        left: 5rem;
-      }
-
-      div.card:last-of-type {
-        /* background-color: green; */
-
-        position: relative;
-        right: 5rem;
-      }
-
-      /* div.card:nth-child(2) { */
-      /* background-color: red; */
-      /* width: 100%;
-        height: 100%;
-        z-index: 1;
-      }*/
-
-      div.card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        border-radius: .25em;
-        width: fit-content;
-        height: fit-content;
-        transition: transform 0.3s ease, opacity 0.3s ease;
-
-        img {
-          width: 25em;
-          height: auto;
-          /*aspect-ratio: 16/9;
-          */
-          border-radius: .25em;
-          transition: transform 0.3s ease, width 0.3s ease;
-        }
-
-        img:nth-child(2) {
-          z-index: 1;
-        }
-
-        span {
-          font-size: 1.2rem;
-          font-weight: 500;
-          color: #595959;
-        }
-      }
-
-      div.activeCard {
-        transform: scale(1.3);
-        opacity: 1;
-        z-index: 1;
-
-        span {
-          color: #fff;
-        }
-      }
-    }
-  }
-
-  div.dots {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: .5em;
-    background-color: #4B4747;
-    border-radius: 1em;
-
-    span.dot {
-      width: 0.75rem;
-      height: 0.75rem;
-      margin: 0 .5rem;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-
-    span.active {
-      background-color: #fff;
-    }
-
-    span.inactive {
-      background-color: #7b7a7a;
-    }
-
-    span:hover {
-      background-color: #585353;
-    }
+    max-width: 18em; /* Reducido un poco para mejor ajuste */
   }
 }
