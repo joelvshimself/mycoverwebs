@@ -1,7 +1,22 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "jsx": "react-jsx",
+    "strict": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "lib": ["ESNext", "DOM"],
+    "types": ["node"],
+    "outDir": "./dist",       // 🔹 TODOS los archivos .js se generarán en dist/
+    "rootDir": "./src",       // 🔹 Asegura que los archivos de origen estén en src/
+    "allowJs": false,         // 🔹 Evita que acepte archivos .js
+    "noEmit": false,          // 🔹 PERMITE que TypeScript genere archivos .js en dist/
+    "removeComments": true,   // 🔹 Remueve comentarios del código compilado
+    "sourceMap": false        // 🔹 Evita generar archivos .js.map innecesarios
+  },
+  "include": ["src"],        
+  "exclude": ["node_modules", "dist", ".next", "build"]
 }

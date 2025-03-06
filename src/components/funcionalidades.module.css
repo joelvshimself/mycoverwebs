@@ -1,17 +1,18 @@
-/* funcionalidades.module.css */
-
+/* CONTENEDOR PRINCIPAL */
 .about {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;  /* Ocupa todo el viewport */
+    height: 100vh; /* Ocupa todo el viewport */
     width: 100vw;
     background-color: black;
+    padding: 0 5vw; /* Añadimos padding en lugar de márgenes */
 }
 
+/* CONTENEDOR DE TEXTO */
 .textContainer {
-    width: 40vw; /* 30% del viewport width */
-    font-size: 2rem; /* Texto más grande */
+    width: 40vw; /* Se mantiene en desktop */
+    font-size: 2rem; 
     font-weight: bold;
     text-align: left;
     max-width: 800px;
@@ -23,14 +24,54 @@
     gap: 10px;
 }
 
+/* ANIMACIÓN DE LAS PALABRAS */
 .animatedWord {
     display: inline-block;
     transition: color 0.3s, opacity 0.3s;
     color: rgba(255, 255, 255, 0.2);
 }
 
-/* Color azul para la palabra "donde" */
+/* COLOR AZUL PARA LA PALABRA "DONDE" */
 .blueWord {
     color: #007BFF;
     font-weight: bold;
 }
+
+/* 🔥 MEDIA QUERIES PARA RESPONSIVE 🔥 */
+@media (max-width: 1024px) { /* Tablets */
+    .textContainer {
+        width: 60vw;
+        font-size: 1.8rem; /* Texto un poco más pequeño */
+    }
+}
+
+@media (max-width: 768px) { /* Celulares grandes */
+    .textContainer {
+        margin-top: -570px;
+        width: 80vw;
+        font-size: 1.6rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 688px) { /* Celulares grandes */
+    .textContainer {
+        width: 90vw;
+        font-size: 1.5rem;
+        line-height: 1.3;
+        gap: 5px;
+    }
+}
+
+@media (max-width: 550px) {
+    .textContainer {
+        margin-top: -430px;
+        width: 90vw;
+        font-size: 1.4rem;
+        line-height: 1.3;
+        gap: 5px;
+    }
+}
+
+
+

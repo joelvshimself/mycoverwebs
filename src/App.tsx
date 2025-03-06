@@ -1,53 +1,83 @@
 import "./App.css";
 import { BentoGridSecondDemo } from "./components/bentocomponent";
-import Carousel from "./components/carousel";
+import Carousel from "./components/slider";
 import Comision from "./components/comision";
 import Contact from "./components/contactsection";
 import { Footer } from "./components/footer";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Hero from "./components/hero";
 import AnimatedText from "./components/funcionalidades";
 import { GlowingEffectDemoSecond } from "./components/glowcard";
-import Hero from "./components/hero";
 import Navbar from "./components/navbar";
-import Slider from "./components/slider";
+import TermsConditions from "./components/terms"; 
+import VideoSection from "./components/videosection";
+
+
 
 
 function App() {
   return (
-    <div className="flex flex-col">
-      <Navbar />
-      <section >
-        <Hero />
-      </section>
-      <section className="h-screen w-full bg-black flex items-center justify-center text-white text-4xl font-bold">
-        <Carousel />
-      </section>
-      <Slider />
-      <section className="full-section">
-        <AnimatedText
-          text={`Como funciona ¡Es tan fácil como 1, 2, 3! \n
-􀊫 Busca tu evento en la app .\n 􀎠 Compra tu entrada de forma segura .\n 􀆡Accede mostrando tu QR único desde 􂏰`}
-        />
-        <br />
+    <Router>
+      <div className="flex flex-col">
+        <Navbar /> {/* El Navbar se mantiene en todas las páginas */}
 
-      </section>
-      <section className="h-screen w-full bg-black flex items-center justify-center text-white text-4xl font-bold">
+        <Routes>
+          {/* Página Principal */}
+          <Route
+            path="/"
+            element={
+              <>
+                <section>
+                  <Hero />
+                </section>
+                <section className="h-screen w-80rem bg-black flex items-center justify-center">
+                  <VideoSection/>
+                </section>
+                <section className="h-screen w-full bg-black flex items-center justify-center text-white text-4xl font-bold">
+                  <Carousel />
+                </section>
+                <section className="full-section mb-50 ">
+                <AnimatedText
+                  text={[
+                    "Como funciona ¡Es tan fácil como 1, 2, 3! \n",
+                    { icon: "search", label: "Busca" }, " tu evento en la app.\n",
+                    { icon: "lock", label: "Compra" }, " tu entrada de forma segura.\n",
+                    { icon: "upload", label: "Accede" }, " mostrando tu QR único desde ",
+                    { icon: "wallet", label: "Wallet" }
+                  ]}
+                />
 
-        <BentoGridSecondDemo />
-      </section>
-      <section className="h-screen w-full bg-black flex items-center justify-center text-white text-4xl font-bold">
-        <Comision />
-      </section>
-      <section className="h-screen w-full bg-black flex items-center justify-center text-white text-4xl font-bold">
-        <GlowingEffectDemoSecond />
-      </section>
-      <section className="h-screen w-full bg-black flex items-center justify-center text-white text-4xl font-bold">
-        <Contact />
-      </section>
-      <footer>
-        <Footer />
-      </footer>
-    </div>
+
+
+
+                </section>
+                <section className="hidden md:flex min-h-screen w-full bg-black flex-col items-center justify-center text-white text-4xl font-bold pb-20">
+                  <BentoGridSecondDemo />
+                </section>
+                <section className="h-screen w-full bg-black flex items-center justify-center text-white text-4xl font-bold">
+                  <Comision />
+                </section>
+                <section className="h-screen w-full bg-black flex items-center justify-center text-white text-4xl font-bold">
+                  <GlowingEffectDemoSecond />
+                </section>
+                <section className="h-screen w-full bg-black flex items-center justify-center text-white text-4xl font-bold">
+                  <Contact />
+                </section>
+                <footer>
+                  <Footer />
+                </footer>
+              </>
+            }
+          />
+
+          {/* Página de Términos y Condiciones */}
+          <Route path="/terms" element={<TermsConditions />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
 export default App;
+

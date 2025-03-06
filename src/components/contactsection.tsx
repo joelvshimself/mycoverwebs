@@ -8,10 +8,25 @@ const Contact = () => {
 
   return (
     <>
-      {/* Botón para abrir el modal */}
-      <StyledWrapper>
-        <button onClick={() => setIsOpen(true)}>Contáctanos</button>
-      </StyledWrapper>
+      <StyledSection>
+        <Container>
+          <TextColumn>
+            <h2>Contacta con Nosotros</h2>
+            <p>Escríbenos y te responderemos lo antes posible.</p>
+            <StyledWrapper>
+              <button onClick={() => setIsOpen(true)}>Contáctanos</button>
+            </StyledWrapper>
+          </TextColumn>
+          <ImageColumn>
+            <StyledImage>
+              <img
+                src="/ss/contentview.png" // Cambia esto por la ruta correcta de tu imagen
+                alt="Ilustración de contacto"
+              />
+            </StyledImage>
+          </ImageColumn>
+        </Container>
+      </StyledSection>
 
       {/* Sheet Modal */}
       {isOpen && <Sheet onClose={() => setIsOpen(false)} />}
@@ -19,7 +34,79 @@ const Contact = () => {
   );
 };
 
+const StyledSection = styled.section`
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+const TextColumn = styled.div`
+  flex: 1;
+  min-width: 300px;
+  padding: 20px;
+  text-align: center; /* 🔥 Centra el texto en móviles */
+
+  h2 {
+    font-size: 32px;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+`;
+
+const ImageColumn = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    display: none; /* 🔥 Oculta la imagen en móviles */
+  }
+`;
+
+const StyledImage = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+
+  img {
+    width: 25vw;
+    height: auto;
+    max-width: 400px;
+    margin: auto;
+    display: block;
+  }
+    @media (max-width: 768px) {
+    display: none; /* 🔥 Oculta la imagen en móviles */
+  }
+`;
+
 const StyledWrapper = styled.div`
+  text-align: center;
+
   button {
     padding: 17px 40px;
     border-radius: 50px;

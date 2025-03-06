@@ -1,5 +1,5 @@
 import { IconBrandInstagram } from "@tabler/icons-react";
-import styles from "./footer.module.css"; // Importamos el archivo CSS
+import styles from "./Footer.module.css"; // Importamos el archivo CSS
 
 export const Footer = () => {
   return (

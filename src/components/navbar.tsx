@@ -1,15 +1,30 @@
-import React from "react";
-import { IconDots } from "@tabler/icons-react";
+import { useState } from "react";
+import { IconFileText, IconMenu, IconX } from "@tabler/icons-react";
+import { Link } from "react-router-dom";
+import "./navbar.module.css"; // Importar el CSS separado
 
 const Navbar = () => {
-  return (
-    <nav className="fixed top-0 left-0 w-full flex items-center justify-between px-6 py-4 bg-white/10 backdrop-blur-lg shadow-lg">
-      {/* Logo (Imagen) */}
-      
-      <div className="text-xl font-bold text-white">my Cover</div>
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-      {/* Tres Puntos (Menú) */}
-      <IconDots size={32} className="text-white cursor-pointer" />
+  return (
+    <nav className="navbar">
+      {/* Logo con enlace al Home */}
+      <Link to="/" className="logo">
+        my Cover
+      </Link>
+
+      {/* Botón de menú hamburguesa en móviles */}
+      <div className="menu-icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        {isMenuOpen ? <IconX size={32} /> : <IconMenu size={32} />}
+      </div>
+
+      {/* Menú de navegación */}
+      <div className={`menu ${isMenuOpen ? "open" : ""}`}>
+        <Link to="/terms" className="menu-item" onClick={() => setIsMenuOpen(false)}>
+          <IconFileText size={20} className="icon" />
+          Términos y Condiciones
+        </Link>
+      </div>
     </nav>
   );
 };
