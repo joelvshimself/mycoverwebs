@@ -10,8 +10,9 @@ import Hero from "./components/hero";
 import AnimatedText from "./components/funcionalidades";
 import { GlowingEffectDemoSecond } from "./components/glowcard";
 import Navbar from "./components/navbar";
+import TermsConditions from "./components/terms"; 
+import VideoSection from "./components/videosection";
 
-import TermsConditions from "./components/terms"; // Importamos la nueva página
 
 
 
@@ -29,6 +30,9 @@ function App() {
               <>
                 <section>
                   <Hero />
+                </section>
+                <section className="h-screen w-80rem bg-black flex items-center justify-center">
+                  <VideoSection/>
                 </section>
                 <section className="h-screen w-full bg-black flex items-center justify-center text-white text-4xl font-bold">
                   <Carousel />
